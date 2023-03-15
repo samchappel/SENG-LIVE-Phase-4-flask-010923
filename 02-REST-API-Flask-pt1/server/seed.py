@@ -4,7 +4,6 @@ from faker import Faker
 from app import app
 from models import db, Production, CastMember
 
-db.init_app(app)
 
 fake = Faker()
 
@@ -52,4 +51,3 @@ with app.app_context():
     hamilton_cast_members = [CastMember(name=fake.name(), role=role, production_id=p4.id) for role in hamilton_roles]
     db.session.add_all(hamilton_cast_members)
     db.session.commit()
-
